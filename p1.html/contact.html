@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+   
+        </form>
+<div class="gold-section">
+
+    <div class="gold-contact-box">
+
+        <h2 class="gold-contact-title">★ CONTACT US</h2>
+
+        <input type="text" placeholder="Enter name">
+
+        <input type="email" placeholder="Enter email">
+
+        <textarea placeholder="Write your message here..."></textarea>
+
+        <button class="gold-send-btn">Send</button>
+
+        <div class="gold-search-box">
+            <input type="text" placeholder="Search...">
+            <span class="gold-search-icon">🔍</span>
+        </div>
+
+    </div>
+
+</div>
+
+        <p id="msg"></p>
+
+    </div>
+
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(e){
+
+            e.preventDefault();
+
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let message = document.getElementById("message").value.trim();
+            let msg = document.getElementById("msg");
+
+            if(name === ""){
+                msg.style.color = "red";
+                msg.innerHTML = "يرجى تعبئة الاسم";
+                return;
+            }
+
+            if(email === ""){
+                msg.style.color = "red";
+                msg.innerHTML = "يرجى تعبئة عنوان البريد الإلكتروني";
+                return;
+            }
+
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if(!emailPattern.test(email)){
+                msg.style.color = "red";
+                msg.innerHTML = "يرجى إدخال عنوان بريد إلكتروني صحيح";
+                return;
+            }
+
+            if(message === ""){
+                msg.style.color = "red";
+                msg.innerHTML = "يرجى كتابة الرسالة";
+                return;
+            }
+
+            msg.style.color = "green";
+            msg.innerHTML = "تم إرسال الرسالة بنجاح ✓";
+
+        });
+    </script>
+
+</body>
+</html>
